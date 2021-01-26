@@ -8,54 +8,6 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: Arial;
-}
-
-.column {
-  float: left;
-  width: 25%;
-  padding: 10px;
-}
-
-.column img {
-  opacity: 0.8;
-  cursor: pointer;
-}
-
-.column img:hover {
-  opacity: 1;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.container {
-  position: relative;
-  display: none;
-}
-
-#imgtext {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  color: white;
-  font-size: 20px;
-}
-
-.closebtn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  color: white;
-  font-size: 35px;
-  cursor: pointer;
-}
-
 .topnav{
   overflow: hidden;
   background-color: #333;
@@ -80,18 +32,37 @@ body {
   color: white;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/*Response layout*/
+
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
 </style>
 </head>
 
 <body>
-
-
-<div class="topnav">
-  <a href="Text.html">Text</a>
-  <a class="active" href="Image.html">Image</a>
-  <a href="Video.html">Video</a>
-  <a href="Table.html">Table</a>
-</div>
 
 <audio src="Resources/Media/On_Our_way.mp3" controls>
 </audio>
@@ -100,56 +71,28 @@ body {
 
 <div class="row">
   <div class="column">
-    <img src="Resources/Images/Cloud.jpg" alt="Cloud" style="width:100%" onclick="myFunction(this);">
+    <img src="Resources/Images/Cloud.jpg" style="width:100%">
+    <img src="Resources/Images/Tifa.jpg" style="width:100%">
   </div>
 
   <div class="column">
-      <img src="Resources/Images/Tifa.jpg" alt="Tifa" style="width:100%" onclick="myFunction(this);">
-    </div>
-
-    <div class="column">
-    <img src="Resources/Images/Aerith.jpg" alt="Aerith" style="width:100%" onclick="myFunction(this);">
+    <img src="Resources/Images/Aerith.jpg" style="width:100%">
+    <img src="Resources/Images/Barret.jpg" style="width:100%">
   </div>
 
   <div class="column">
-    <img src="Resources/Images/Barret.jpg" alt="Barret" style="width:100%" onclick="myFunction(this);">
+    <img src="Resources/Images/Reno.jpg" style="width:100%">
+    <img src="Resources/Images/Lude.jpg" style="width:100%">
   </div>
 
   <div class="column">
-    <img src="Resources/Images/Reno.jpg" alt="Reno" style="width:100%" onclick="myFunction(this);">
-  </div>
-
-  <div class="column">
-    <img src="Resources/Images/Lude.jpg" alt="Lude" style="width:100%" onclick="myFunction(this);">
-  </div>
-
-  <div class="column">
-    <img src="Resources/Images/Sephiroth.jpg" alt="Sephiroth" style="width:100%" onclick="myFunction(this);">
-  </div>
-
-  <div class="column">
-    <img src="Resources/Images/Jess.jpg" alt="Jess" style="width:100%" onclick="myFunction(this);">
+    <img src="Resources/Images/Sephiroth.jpg" style="width:100%">
+    <img src="Resources/Images/Jess.jpg" style="width:100%">
   </div>
 
 
 </div>
 
-
-<div class="container">
-  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-  <img id="expandedImg" style="width:100%">
-  <div id="imgtext"></div>
-</div>
-
-<script>
-function myFunction(imgs) {
-  var expandImg = document.getElementById("expandedImg");
-  var imgText = document.getElementById("imgtext");
-  expandImg.src = imgs.src;
-  imgText.innerHTML = imgs.alt;
-  expandImg.parentElement.style.display = "block";
-}
-</script>
 
 </body>
 </html>
