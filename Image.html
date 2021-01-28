@@ -5,6 +5,17 @@
 <style>
 /*botton code is learn from W3school*/
 
+body, html {
+  background-image: url("Resources/Images/Pic.jpg");
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 #myBtn {
   display: none;
   position: fixed;
@@ -107,7 +118,7 @@
 .modal-content {
   position: relative;
   background-color: #fefefe;
-  margin: auto;
+  margin:0 auto;
   padding: 0;
   width: 100%;
   max-width: 1200px;
@@ -200,6 +211,7 @@ img.hover-shadow {
   </div>
 </div>
 
+<div class="container">
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close cursor" onclick="closeModal()">&times;</span>
@@ -243,6 +255,7 @@ img.hover-shadow {
       <img src="Resources/Images/Jess.jpg" style="width:100%">
     </div>
   </div>
+</div>
 </div>
 
 <script>
@@ -289,10 +302,10 @@ function showSlides(n) {
 
 
 //get modal
-var modal=document.getElementById("myModal")
+var modal=document.getElementById("01")
 window.onclick = function(event){
   if (event.target == modal) {
-    closeModal();
+    modal.style.display = "none";
   }
 }
 

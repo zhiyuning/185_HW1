@@ -7,10 +7,24 @@
 body {
   background-image: url("Resources/Images/FF7_1.jpg");
   text-align: center;
+  height: 100%;
+}
+
+html {
+  height: 100%;
 }
 
 form {
   display: inline;
+}
+
+
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .topnav{
@@ -50,23 +64,24 @@ form {
   <a href="Validation.html">Validation</a>
 </div>
 
+<div class="container">
+  <form>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname"><br><br>
 
-<form>
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname"><br><br>
+    <p>Have you played Final Fantasy VII RE?</p>
 
-<p>Have you played Final Fantasy VII RE?</p>
-
-  <input type="radio" id="Yes" name="Choice" value="Yes">
-  <label for="Yes">Yes, I love it!</label><br>
-  <input type="radio" id="No" name="Choice" value="No">
-  <label for="No">No</label><br>
-  <input type="radio" id="other" name="Choice" value="Will try maybe?">
-  <label for="other">Will try maybe?</label><br><br>
-  <input type="submit" value="Submit">
-</form>
+    <input type="radio" id="Yes" name="Choice" value="Yes">
+    <label for="Yes">Yes, I love it!</label><br>
+    <input type="radio" id="No" name="Choice" value="No">
+    <label for="No">No</label><br>
+    <input type="radio" id="other" name="Choice" value="Will try maybe?">
+    <label for="other">Will try maybe?</label><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</div>
 </body>
 
 
