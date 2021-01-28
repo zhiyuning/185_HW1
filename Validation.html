@@ -4,12 +4,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 
-body {
-  text-align: center;
+body, html {
+  height: 100%;
 }
 
 form {
   display: inline;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .topnav{
@@ -49,11 +56,12 @@ form {
   <a class="active" href="Validation.html">Validation</a>
 </div>
 
-
+<div class="container">
 <form name="form1" onsubmit="return validate();" method="get">
 <p> Email: <input type="text" id="email" name="email"></p>
 		   <input type="Submit" value="Submit">
 </form>
+</div>
 
 <!--learn from Stackoverflow: https://stackoverflow.com/questions/46841752/javascript-regular-expressions-email-address-->
 
