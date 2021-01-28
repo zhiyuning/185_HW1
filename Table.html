@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 
 body {
@@ -11,6 +12,8 @@ body {
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .topnav{
@@ -37,15 +40,39 @@ table, th, td {
   color: white;
 }
 
+/*botton code is learn from W3school*/
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+
 </style>
 </head>
 
 <body>
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <div class="topnav">
   <a href="Text.html">Text</a>
   <a href="Image.html">Image</a>
   <a href="Video.html">Video</a>
   <a class="active" href="Table.html">Table</a>
+  <a href="Validation.html">Validation</a>
 </div>
 
 <h2>Projects</h2>
@@ -58,7 +85,7 @@ table, th, td {
 
   <tr>
     <td>
-      <a href="https://finalfantasy.fandom.com/wiki/Cloud_Strife">Cloud</a>
+      <a href="https://finalfantasy.fandom.com/wiki/Cloud_Strife" style="color:pink">Cloud</a>
     </td>
     <td style="color:white; height:100px"> Former First Class SOLDIER. After defecting from Shinra, Cloud began work as a mercenary for hire in Midgar. With his trusty broadsword in hand, he always gets the job done </td>
     <td>21</td>
@@ -66,7 +93,7 @@ table, th, td {
 
   <tr>
     <td>
-      <a href="https://finalfantasy.fandom.com/wiki/Tifa_Lockhart">Tifa</a>
+      <a href="https://finalfantasy.fandom.com/wiki/Tifa_Lockhart" style="color:pink">Tifa</a>
     </td>
     <td style="color:white; height:100px">A member of the anti-Shinra militant group Avalanche. Tifa manages Seventh Heaven, a bar located in the Sector 7 slums. A student of Zangan-style martial arts, she can clobber opponents with her fleet-footed combat techniques.</td>
     <td>20</td>
@@ -74,7 +101,7 @@ table, th, td {
 
   <tr>
     <td>
-      <a href="https://finalfantasy.fandom.com/wiki/Aerith_Gainsborough">Aerith</a>
+      <a href="https://finalfantasy.fandom.com/wiki/Aerith_Gainsborough" style="color:pink">Aerith</a>
     </td>
     <td style="color:white; height:100px"style="color:white; height:100px">A flower peddler living in the Sector 5 slums, Aerith has been under Shinra surveillance all her life because of her unique background. Capable of sensing the planet's life force, she offers magical support to her comrades.</td>
     <td>22</td>
@@ -82,7 +109,7 @@ table, th, td {
 
   <tr>
     <td>
-      <a href="https://finalfantasy.fandom.com/wiki/Barret_Wallace">Barret</a>
+      <a href="https://finalfantasy.fandom.com/wiki/Barret_Wallace" style="color:pink">Barret</a>
     </td>
     <td style="color:white; height:100px"style="color:white; height:100px"style="color:white; height:100px">A faction leader of the anti-Shinra militant group Avalanche. Barret is filled with a burning hatred for Shinra, a company he claims is destroying the planet. His right arm has been modified into a firearm, allowing him to attack his enemies at long range.</td>
     <td>35</td>
@@ -90,15 +117,34 @@ table, th, td {
 
   <tr>
     <td>
-      <a href="https://finalfantasy.fandom.com/wiki/Sephiroth">Sephiroth</a>
+      <a href="https://finalfantasy.fandom.com/wiki/Sephiroth" style="color:pink">Sephiroth</a>
     </td>
     <td style="color:white; height:100px">There was one SOLDIER named Sephiroth, who was better than the rest, but when he found out about the terrible experiments that made him, he began to hate Shinra. And then, over time, he began to hate everything.</td>
     <td>Approximately 20-23</td>
   </tr>
+</table>
 
+<script>
+//Get the button:
+mybutton = document.getElementById("myBtn");
 
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
 
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
 
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
 
 
 </body>

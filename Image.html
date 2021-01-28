@@ -1,58 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+/*botton code is learn from W3school*/
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
 
 * {
   box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial;
-}
-
-.column {
-  float: left;
-  width: 25%;
-  padding: 10px;
-}
-
-.column img {
-  opacity: 0.8;
-  cursor: pointer;
-}
-
-.column img:hover {
-  opacity: 1;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.container {
-  position: relative;
-  display: none;
-}
-
-#imgtext {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  color: white;
-  font-size: 20px;
-}
-
-.closebtn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  color: white;
-  font-size: 35px;
-  cursor: pointer;
 }
 
 .topnav{
@@ -79,75 +53,272 @@ body {
   color: white;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+.row > .column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 100%;
+  max-width: 1200px;
+}
+/* Hide the slides by default */
+.mySlides {
+  display: none;
+}
+
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+img.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
 </style>
 </head>
 
 <body>
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
-
+<!--Images start here -->
 <div class="topnav">
   <a href="Text.html">Text</a>
   <a class="active" href="Image.html">Image</a>
   <a href="Video.html">Video</a>
   <a href="Table.html">Table</a>
+  <a href="Validation.html">Validation</a>
 </div>
 
 <audio src="Resources/Media/On_Our_way.mp3" controls>
 </audio>
 
-<!--Images start here -->
-
 <div class="row">
   <div class="column">
-    <img src="Resources/Images/Cloud.jpg" alt="Cloud" style="width:100%" onclick="myFunction(this);">
+    <img src="Resources/Images/Cloud.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
+    <img src="Resources/Images/Tifa.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow">
   </div>
 
   <div class="column">
-      <img src="Resources/Images/Tifa.jpg" alt="Tifa" style="width:100%" onclick="myFunction(this);">
-    </div>
-
-    <div class="column">
-    <img src="Resources/Images/Aerith.jpg" alt="Aerith" style="width:100%" onclick="myFunction(this);">
+    <img src="Resources/Images/Aerith.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow">
+    <img src="Resources/Images/Barret.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow">
   </div>
 
   <div class="column">
-    <img src="Resources/Images/Barret.jpg" alt="Barret" style="width:100%" onclick="myFunction(this);">
+    <img src="Resources/Images/Reno.jpg" onclick="openModal();currentSlide(5)" class="hover-shadow">
+    <img src="Resources/Images/Lude.jpg" onclick="openModal();currentSlide(6)" class="hover-shadow">
   </div>
 
   <div class="column">
-    <img src="Resources/Images/Reno.jpg" alt="Reno" style="width:100%" onclick="myFunction(this);">
+    <img src="Resources/Images/Sephiroth.jpg" onclick="openModal();currentSlide(7)" class="hover-shadow">
+    <img src="Resources/Images/Jess.jpg" onclick="openModal();currentSlide(8)" class="hover-shadow">
   </div>
-
-  <div class="column">
-    <img src="Resources/Images/Lude.jpg" alt="Lude" style="width:100%" onclick="myFunction(this);">
-  </div>
-
-  <div class="column">
-    <img src="Resources/Images/Sephiroth.jpg" alt="Sephiroth" style="width:100%" onclick="myFunction(this);">
-  </div>
-
-  <div class="column">
-    <img src="Resources/Images/Jess.jpg" alt="Jess" style="width:100%" onclick="myFunction(this);">
-  </div>
-
-
 </div>
 
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="mySlides">
+      <div class="numbertext"></div>
+      <img src="Resources/Images/Cloud.jpg" style="width:100%">
+    </div>
 
-<div class="container">
-  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-  <img id="expandedImg" style="width:100%">
-  <div id="imgtext"></div>
+    <div class="mySlides">
+      <div class="numbertext"></div>
+      <img src="Resources/Images/Tifa.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext"></div>
+      <img src="Resources/Images/Aerith.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext"></div>
+      <img src="Resources/Images/Barret.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext"></div>
+      <img src="Resources/Images/Reno.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext"></div>
+      <img src="Resources/Images/Lude.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext"></div>
+      <img src="Resources/Images/Sephiroth.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext"></div>
+      <img src="Resources/Images/Jess.jpg" style="width:100%">
+    </div>
+  </div>
 </div>
 
 <script>
-function myFunction(imgs) {
-  var expandImg = document.getElementById("expandedImg");
-  var imgText = document.getElementById("imgtext");
-  expandImg.src = imgs.src;
-  imgText.innerHTML = imgs.alt;
-  expandImg.parentElement.style.display = "block";
+
+// Open the Modal
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
 }
+
+// Close the Modal
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+
+
+//get modal
+var modal=document.getElementById("myModal")
+window.onclick = function(event){
+  if (event.target == modal) {
+    closeModal();
+  }
+}
+
+</script>
+
+<script>
+//Get the button:
+mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
 </script>
 
 </body>
